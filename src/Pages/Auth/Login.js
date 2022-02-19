@@ -138,8 +138,8 @@ function Login(){
 	            <h1 className ="text-center">Login</h1>
 	            <form className ="needs-validation" onSubmit = { onSubmits } noValidate>
 	              <div className ="form-group">
-	                <label className ="form-label">Username</label>
-	                <input type="text" name="email" value = {user.email} onChange = {inputEvent} className ="form-control" id="email" placeholder="Username" required/>
+	                <label className ="form-label">Email</label>
+	                <input type="text" name="email" value = {user.email} onChange = {inputEvent} className ="form-control" id="email" placeholder="Email" required/>
 	                <div className ="invalid-feedback">
 	                  {error["email"]}
 	                </div>
