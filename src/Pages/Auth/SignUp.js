@@ -12,7 +12,7 @@ function SignUp(){
 	const navigate = useNavigate();
 
 	const postData = () => {
-		fetch(`${server_url}/signup`,{
+		fetch(`${server_url}/user/signup`,{
 			method : 'post',
 			headers : {
 				"Content-Type":"application/json"

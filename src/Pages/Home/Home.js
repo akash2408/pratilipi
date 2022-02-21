@@ -25,7 +25,7 @@ function Home(){
 	},[sortBy,orderBy])
 
 	async function fetchData() {
-		return fetch(`${server_url}/story?sortBy=${sortBy}&orderBy=${orderBy}`,{
+		return fetch(`${server_url}/story/list?sortBy=${sortBy}&orderBy=${orderBy}`,{
 			method : 'get',
 			headers : {
 				"Content-Type":"application/json"
@@ -52,7 +52,7 @@ function Home(){
 		const token = localStorage.getItem('accessToken');
 
 		if( isLoggedIn ){
-			return fetch(`${server_url}/user/likes`,{
+			return fetch(`${server_url}/user/likelist`,{
 				method : 'get',
 				headers : {
 					"Content-Type":"application/json",

@@ -4,7 +4,7 @@ import { addFlashMessage } from './flashMessages';
 export default function refresh()  {
 	return dispatch => {
 		const refreshToken = localStorage.getItem('refreshToken');
-		return fetch(`${server_url}/refresh`,{
+		return fetch(`${server_url}/user/refresh`,{
 			method : 'post',
 			headers : {
 				"Content-Type":"application/json"

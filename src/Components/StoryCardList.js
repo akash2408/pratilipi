@@ -97,13 +97,14 @@ function StoryCard(props) {
 function StoryCardList(props) {
 	const storyData = props.storyList;
 	const userLikeList = props.userLikeList;
+	console.log(storyData,userLikeList);
 	return (
 	  <>
 	  <div className= "container">
 		  <div className="row">
 		  	{ 
 		  		storyData.map((val) => { 
-		  			if( userLikeList.some(e => e.story === val._id ) ){
+		  			if( userLikeList.some(e => e._id === val._id ) ){
 		  				val.isLiked = true;
 		  			}
 		  			else{

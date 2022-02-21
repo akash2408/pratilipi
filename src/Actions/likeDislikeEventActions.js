@@ -19,7 +19,7 @@ export function likeStory(id){
         .then(async (response) => {
           const status = await response.status;
           if(response.status == 400){ 
-            const data = await response.json();   
+            const data = await response.json();  
             if(data.msg == 'Access token expired'){
               return dispatch(refresh())
               .then(()=>{ 
@@ -28,6 +28,9 @@ export function likeStory(id){
               .catch((error) => {
                   console.error('There was an error!', error);
               });
+            }
+            else{
+              dispatch(addFlashMessage({ type : 'danger', text: data.msg}));
             }   
           }
           else{
@@ -68,7 +71,10 @@ export function dislikeStory(id){
               .catch((error) => {
                   console.error('There was an error!', error);
               });
-            }  
+            }
+            else{
+              dispatch(addFlashMessage({ type : 'danger', text: data.msg}));
+            }    
         }
         else{
           const data = await response.json();

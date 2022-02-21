@@ -35,7 +35,7 @@ function FlashMessage(props){
 
 function FlashMessagesList(props){
 	const hoverEffect = {
-		position: "absolute",
+		position: "fixed",
 		width : "50%",
 	    zIndex: 9999,
 	}

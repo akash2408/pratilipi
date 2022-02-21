@@ -12,7 +12,7 @@ function Login(){
 	const navigate = useNavigate();
 
 	const postData = () => {
-		fetch(`${server_url}/login`,{
+		fetch(`${server_url}/user/login`,{
 			method : 'post',
 			headers : {
 				"Content-Type":"application/json"
