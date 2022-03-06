@@ -6,10 +6,13 @@ import { server_url } from '../../Actions/types';
 import refresh from '../../Actions/refreshAction';
 import { useSearchParams } from "react-router-dom";
 import { Link, NavLink , useNavigate} from 'react-router-dom';
+import { setLoggedIn } from '../../Actions/isLoggedIn';
 
 function Home(){
 	const dispatch = useDispatch();
 	const isLoggedIn = useSelector((state) => state.isLoggedIn);
+	const navigate = useNavigate();
+	
 	const [storyData, setStoryData] = useState([]);
 	const [userLikeList, setUserLikeList] = useState([]);
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -71,6 +74,13 @@ function Home(){
 				        .catch((error) => {
 				            console.error('There was an error!', error);
 				        });
+					}
+					else{
+						localStorage.removeItem('accessToken');
+						localStorage.removeItem('refreshToken');
+						dispatch(setLoggedIn(false));
+						dispatch(addFlashMessage({ type : 'danger', text: data.msg}));
+						navigate('/login');	
 					}	
 				}
 				else{
